@@ -42,4 +42,17 @@ The initial balance is 0.
 If a withdrawal causes the balance to go below zero, the transaction should be ignored,
 and the function should continue processing the remaining transactions.
 */
-export function processTransactions(transactions) {}
+export function processTransactions(transactions) {
+  let balance = 0;
+
+  for (const { amount, type } of transactions) {
+    if (type === "deposit") {
+      balance += amount;
+    }
+    if (type === "withdrawal" && balance >= amount) {
+      balance -= amount;
+    }
+  }
+
+  return balance;
+}
