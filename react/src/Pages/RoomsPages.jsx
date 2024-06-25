@@ -18,12 +18,12 @@ export default function RoomsPages() {
   }
 
   return (
-    <>
-      {isLoading && <h1>RoomsLoading...</h1>}
+    <div className="flex flex-col items-center">
+    {isLoading && <h1>RoomsLoading...</h1>}
       {data?.rooms.map((room) => {
         const { id } = room;
         return <Room key={id} onGetId={handleId} room={room} />;
       })}
-    </>
+    </div>
   );
 }
