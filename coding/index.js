@@ -13,8 +13,18 @@ Each object should have:
 value: the common element.
 indexSum: the sum of the indices of this element in both arrays.
 */
-export function twistedArrayIntersection(arr1, arr2) {}
+export function twistedArrayIntersection(arr1, arr2) {
+  const result = [];
 
+  arr1.forEach((item, i) => {
+    const j = arr2.indexOf(item);
+    if (j !== -1) {
+      result.push({ value: item, indexSum: i + j });
+    }
+  });
+
+  return result;
+}
 
 /*
 You need to create an advanced accounting system that can handle basic transactions
