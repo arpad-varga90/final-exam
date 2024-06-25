@@ -2,10 +2,12 @@ export default function CatCard(props) {
   const { name, image, description } = props.catObj;
   console.log(image);
   return (
-    <div>
+    <div className="card">
       <img src={image} alt="cute-cat-image" />
-      <h2>{name}</h2>
-      <p>{description}</p>
+      <div className="content">
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
